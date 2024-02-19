@@ -1,0 +1,4 @@
+[NetDev]
+Description=Wireless bridge device
+Name=wbr0
+Kind=bridge
