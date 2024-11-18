@@ -1,4 +1,0 @@
-# https://github.com/systemd/systemd/issues/936
-#
-ACTION=="add", SUBSYSTEM=="net", ATTR{address}=="04:f0:21:3d:93:7e", DRIVERS=="ath10k_pci", RUN+="/usr/bin/iw dev $name set 4addr on"
-ACTION=="add", SUBSYSTEM=="net", ATTR{address}=="04:f0:21:45:73:9f", DRIVERS=="ath9k", RUN+="/usr/bin/iw dev $name set 4addr on"
