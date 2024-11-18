@@ -18,7 +18,7 @@ function error() {
 
 # ensure the programs needed to execute are available
 function check_progs() {
-  local PROGS="pacman curl tar patch make cp zcat xz"
+  local PROGS="pacman curl tar patch make cp zcat zstd"
   which ${PROGS} > /dev/null 2>&1 || error "Searching PATH fails to find executables among: ${PROGS}"
 }
 
@@ -71,7 +71,7 @@ function main() {
   make scripts
   cp "/usr/lib/modules/${KERNEL_DIR}/build/scripts/module.lds" scripts/.
   make M=drivers/net/wireless/ath
-  xz drivers/net/wireless/ath/ath.ko
+  zstd drivers/net/wireless/ath/ath.ko
 }
 
 main "$@"
