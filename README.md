@@ -36,7 +36,7 @@ Usage
 This repo contains only the configuration files required to setup a basic wireless router. It assumes you've installed your Linux system and have SSH access. You'll probably want internet access to download and install packages although this isn't necessarily required if you're installation media contains all the required software and the configuration files from this repo.
 
 * File paths are relative to '/'. So *etc/nftables.conf* should be copied to */etc/nftables.conf* on your target device.
-* You'll need to update the *[Match]* sections for the files in *etc/systemd/network/.* to match the MAC addresses of your NICs.
+* You'll need to update the *[Match]* sections for the files in *etc/systemd/network/.* to match the MAC addresses of your NICs. Additionally, you must ensure that the *wan0* interface is the one that is actually plugged in to your upstream modem.
 * Similarly, you'll need to set the SSID name and passphrase in the 2 *hostapd* configuration files. (I use the same SSID/passphrase for both bands so clients can move between the 2 depending on signal strength.)
 * The network interface names and private IP subnet (10.14.14.0/24) are used in various config files so if you change them, make sure you update them everywhere.
 
