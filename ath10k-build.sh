@@ -7,7 +7,6 @@
 # eg. linux-5.10.16.tar.xz
 BASE_URL="https://cdn.kernel.org/pub/linux/kernel/v5.x"
 SEMVER_REGEX='([[:digit:]]+)\.([[:digit:]]+)\.([[:digit:]]+)'
-COMPRESSION_BINARY="zstd"
 
 
 # print an error and exit with failure
@@ -19,7 +18,7 @@ function error() {
 
 # ensure the programs needed to execute are available
 function check_progs() {
-  local PROGS="pacman curl tar patch make cp zcat xz zstd"
+  local PROGS="pacman curl tar patch make cp zcat zstd"
   which ${PROGS} > /dev/null 2>&1 || error "Searching PATH fails to find executables among: ${PROGS}"
 }
 
@@ -51,7 +50,6 @@ function main() {
   if [ "$(echo "${KERNEL_PKG_NAME}" | cut --delimiter='-' --fields=2)" == 'lts' ]; then
     KERNEL_EXTRA_VERSION=''
     KERNEL_DIR="${KERNEL_SEMVER}${KERNEL_LOCAL_VERSION}-lts"
-    COMPRESSION_BINARY="xz"
   else
     KERNEL_EXTRA_VERSION="-$(echo ${KERNEL_PKG_VERSION} | cut --delimiter=- --fields=1 | cut --delimiter=. --fields=4)"
     KERNEL_DIR="${KERNEL_SEMVER}${KERNEL_EXTRA_VERSION}${KERNEL_LOCAL_VERSION}"
@@ -73,7 +71,7 @@ function main() {
   make scripts
   cp "/usr/lib/modules/${KERNEL_DIR}/build/scripts/module.lds" scripts/.
   make M=drivers/net/wireless/ath
-  ${COMPRESSION_BINARY} drivers/net/wireless/ath/ath.ko
+  zstd drivers/net/wireless/ath/ath.ko
 }
 
 main "$@"
