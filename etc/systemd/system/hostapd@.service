@@ -1,11 +1,15 @@
 [Unit]
 Description=Hostapd IEEE 802.11 AP, IEEE 802.1X/WPA/WPA2/EAP/RADIUS Authenticator for device: %i
-BindsTo=sys-subsystem-net-devices-%i.device
-After=sys-subsystem-net-devices-%i.device
+After=network-online.target
+Wants=network-online.target
 
 [Service]
-ExecStart=/usr/bin/hostapd /etc/hostapd/hostapd-%i.conf
-ExecReload=/bin/kill -HUP $MAINPID
+Type=forking
+PIDFile=/run/hostapd/hostapd-%i.pid
+
+ExecStart=/usr/bin/hostapd -B -P /run/hostapd/hostapd-%i.pid /etc/hostapd/hostapd-%i.conf
+ExecStartPost=-/usr/bin/bash -c 'echo 1 > /sys/devices/virtual/net/br0/lower_%i/brport/hairpin_mode'
+ExecStartPost=-/usr/bin/bash -c 'echo 1 > /sys/devices/virtual/net/br0/lower_%i/brport/multicast_to_unicast'
 
 [Install]
 WantedBy=multi-user.target
