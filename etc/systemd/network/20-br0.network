@@ -3,3 +3,5 @@ Name=br0
 
 [Network]
 Address=10.14.14.1/24
+ConfigureWithoutCarrier=yes
+
