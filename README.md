@@ -55,8 +55,10 @@ The following systemd units should be enabled:
 Notes
 =====
 * IPv6 is disabled
+* For the LED configuration to work you need a recent-ish (>4.16) kernel.
 * No services are available on the WAN/public facing interface. Only DHCP, DNS and SSH are available on the LAN side.
-* Both wireless APs and 2 of the wireless NICs are bridged and represent the local LAN. The remaining wired NIC is public facing and obtains it's IP from your ISP via DHCP.
+* Both wireless APs and 2 of the wireless NICs are bridged and represent the local LAN. Bridge traffic is then NAT'd to provide internet access.
+* The remaining wired NIC is public facing and obtains it's IP from your ISP via DHCP.
 * Unbound is configured to block add domains for the entire network. If you notice services that are no longer accessible check the list in */etc/unbound/ad_servers* and comment out the relevant domain.
 
 References
