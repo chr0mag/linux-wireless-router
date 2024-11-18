@@ -7,7 +7,7 @@ This repo contains only the configuration files required to setup a basic wirele
 
 * File paths are relative to '/'. So *etc/nftables.conf* should be copied to */etc/nftables.conf* on your target device.
 * You'll need to update the *[Match]* sections for the files in *etc/systemd/network/.* to match the MAC addresses of your NICs. Additionally, you must ensure that the *wan0* interface is the one that is actually connected to your upstream service provider.
-* Similarly, you'll need to set the SSID name and passphrase in the 2 *hostapd* configuration files. (I use the same SSID/passphrase for both bands so clients can move between the 2 depending on signal strength.)
+* Similarly, you'll need to create and add a passphrase to */etc/hostapd/hostapd.wpa_psk* as this file is referenced by both *hostapd* configuration files. (I use the same SSID/passphrase for both bands so clients can move between the 2 depending on signal strength.) Restricting permissions for this file (eg. *chmod 400 /etc/hostapd/hostapd.wpa_psk*) is probably a good idea.
 * The network interface names and private IP subnet (10.14.14.0/24) are used in various config files so if you change them, make sure you update them everywhere.
 
 The following systemd units should be enabled:
