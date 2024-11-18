@@ -1,0 +1,7 @@
+[Match]
+MACAddress=aa:bb:cc:dd:ee:ff
+Driver=ath9k
+
+[Link]
+Description=2.4Ghz wireless link
+Name=wifi1

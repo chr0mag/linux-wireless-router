@@ -1,0 +1,10 @@
+[Unit]
+Description=Run root.hints monthly
+
+[Timer]
+OnCalendar=monthly
+Persistent=true
+RandomizedDelaySec=300
+ 
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,4 @@
+[NetDev]
+Description=LAN bridge device
+Name=br0
+Kind=bridge

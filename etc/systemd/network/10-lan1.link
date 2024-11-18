@@ -1,0 +1,8 @@
+[Match]
+MACAddress=aa:bb:cc:dd:ee:ff
+
+[Link]
+Description=lan1 link
+Name=lan1
+MTUBytes=9000
+WakeOnLan=off

@@ -1,0 +1,7 @@
+[Unit]
+Description=Update ad server domain blocklist for unbound
+After=network-online.target
+Requires=network-online.target
+
+[Service]
+ExecStart=/usr/bin/curl --output /etc/unbound/ad_servers https://pgl.yoyo.org/adservers/serverlist.php?hostformat=unbound&showintro=0&mimetype=plaintext

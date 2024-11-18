@@ -1,0 +1,7 @@
+[Unit]
+Description=Update root hints for unbound
+After=network-online.target
+Requires=network-online.target
+
+[Service]
+ExecStart=/usr/bin/curl --output /etc/unbound/root.hints https://www.internic.net/domain/named.cache

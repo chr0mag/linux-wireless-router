@@ -1,0 +1,6 @@
+[Match]
+Name=wan0
+
+[Network]
+Description=Internet NIC
+DHCP=ipv4

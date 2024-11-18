@@ -1,0 +1,9 @@
+[Match]
+Name=wifi*
+
+[Network]
+Bridge=br0
+
+[Bridge]
+HairPin=true
+MulticastToUnicast=true

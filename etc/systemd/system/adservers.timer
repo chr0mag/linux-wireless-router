@@ -1,0 +1,10 @@
+[Unit]
+Description=Run ad server domain blocklist monthly
+
+[Timer]
+OnCalendar=monthly
+Persistent=true
+RandomizedDelaySec=300
+ 
+[Install]
+WantedBy=timers.target

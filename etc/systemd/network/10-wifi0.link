@@ -1,0 +1,7 @@
+[Match]
+MACAddress=aa:bb:cc:dd:ee:ff
+Driver=ath10k_pci
+
+[Link]
+Description=5Ghz wireless link
+Name=wifi0

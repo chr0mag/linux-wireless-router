@@ -1,0 +1,8 @@
+[Match]
+MACAddress=aa:bb:cc:dd:ee:ff
+
+[Link]
+Description=Internet link
+Name=wan0
+MTUBytes=9000
+WakeOnLan=off
