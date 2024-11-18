@@ -1,5 +1,5 @@
 # DIY Linux Wireless Router
-These configuration files describe how to configure [PC Engines](https://pcengines.ch/) APU2C4 hardware as a wireless router using linux.
+These configuration files describe how to configure [PC Engines](https://pcengines.ch/) APU2C4 hardware as a wireless router using Arch linux.
 
 Usage
 =====
@@ -25,9 +25,9 @@ The following systemd units should be enabled:
 Notes
 =====
 * This configuration assumes IPv6 is disabled. You can do this using kernel parameter *ipv6.disable=1*.
-* For the LED configuration to work you need a recent-ish (>4.16) kernel.
+* For the LED configuration to work you need a recent (>=5.1) kernel.
 * No services are available on the WAN/public facing interface. Only DHCP, DNS and SSH are available on the LAN side.
-* Both wireless APs and 2 of the wireless NICs are bridged and represent the local LAN. Bridge traffic is then NAT'd to provide internet access.
+* Both wireless APs and 2 of the wired NICs are bridged and represent the local LAN. Bridge traffic is then NAT'd to provide internet access.
 * The remaining wired NIC is public facing and obtains it's IP from your ISP via DHCP.
 * Unbound is configured to block ad domains for the entire network. If you notice services that are no longer accessible check the list in */etc/unbound/ad_servers* and comment out the relevant domain.
 
