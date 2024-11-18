@@ -10,8 +10,8 @@ Type=forking
 PIDFile=/run/hostapd/hostapd-%i.pid
 
 ExecStart=/usr/bin/hostapd -B -P /run/hostapd/hostapd-%i.pid /etc/hostapd/hostapd-%i.conf
-ExecStartPost=-/usr/bin/bash -c 'echo 1 > /sys/devices/virtual/net/br0/lower_%i/brport/hairpin_mode'
-ExecStartPost=-/usr/bin/bash -c 'echo 1 > /sys/devices/virtual/net/br0/lower_%i/brport/multicast_to_unicast'
+ExecStartPost=-/usr/bin/bash -c 'echo 1 > /sys/devices/virtual/net/wbr0/lower_%i/brport/hairpin_mode'
+ExecStartPost=-/usr/bin/bash -c 'echo 1 > /sys/devices/virtual/net/wbr0/lower_%i/brport/multicast_to_unicast'
 
 [Install]
 WantedBy=multi-user.target

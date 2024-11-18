@@ -5,3 +5,4 @@ Requires=network-online.target
 
 [Service]
 ExecStart=/usr/bin/curl --output /etc/unbound/ad_servers https://pgl.yoyo.org/adservers/serverlist.php?hostformat=unbound&showintro=0&mimetype=plaintext
+ExecStartPost=/usr/bin/bash -c 'echo "Blocklist entries: $(/usr/bin/wc --lines /etc/unbound/ad_servers)"'

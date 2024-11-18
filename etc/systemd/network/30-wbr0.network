@@ -1,0 +1,6 @@
+[Match]
+Name=wbr0
+
+[Network]
+Address=10.10.10.1/24
+ConfigureWithoutCarrier=yes
