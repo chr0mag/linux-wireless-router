@@ -1,2 +1,4 @@
 #ignore passphrase files in the event we accidentally add it to our local repo
 **/*.wpa_psk
+linux*
+.idea
